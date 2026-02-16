@@ -47,7 +47,7 @@ requirements.txt ├── README.md └── logs/ (auto-generated)
 
 ### 1. Clone the Repository
 
-git clone `<your_repository_link>`{=html} cd trading_bot
+git clone https://github.com/SUJAYBARAI/binance-futures-trading-bot {=html} cd trading_bot
 
 ### 2. Create Virtual Environment (Recommended)
 
