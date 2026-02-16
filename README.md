@@ -1,132 +1,135 @@
-# Binance Futures Demo Trading Bot (USDT-M)
+Binance Futures Demo Trading Bot (USDT-M)
 
-## Overview
+Overview
+This project is a simplified Python-based trading bot that places MARKET and LIMIT orders on Binance Futures Demo (USDT-M).
 
-This project is a simplified Python-based trading bot that places MARKET
-and LIMIT orders on Binance Futures Demo (USDT-M).
+The application follows a clean and modular architecture with proper logging, structured validation, and robust error handling to simulate production-level backend development practices.
 
-The application is designed with a clean, modular architecture, proper
-logging, structured validation, and robust error handling to simulate
-production-level backend development practices.
+Features
 
-------------------------------------------------------------------------
+Place MARKET orders
 
-## Features
+Place LIMIT orders
 
--   Place MARKET orders
--   Place LIMIT orders
--   Supports both BUY and SELL
--   CLI-based input using argparse
--   Separate API client layer and CLI layer
--   Structured logging of API requests and responses
--   Proper exception handling for:
-    -   Invalid user inputs
-    -   API errors
-    -   Network failures
+Supports both BUY and SELL
 
-------------------------------------------------------------------------
+CLI-based input using argparse
 
-## Tech Stack
+Separate API client layer and CLI layer
 
--   Python 3.x
--   python-binance
--   python-dotenv
--   argparse
+Structured logging of API requests and responses
 
-------------------------------------------------------------------------
+Proper exception handling for invalid inputs, API errors, and network failures
 
-## Project Structure
+Tech Stack
 
-trading_bot/ │ ├── bot/ │ ├── **init**.py │ ├── client.py │ ├──
-orders.py │ ├── validators.py │ ├── logging_config.py │ ├── cli.py ├──
-requirements.txt ├── README.md └── logs/ (auto-generated)
+Python 3.x
 
-------------------------------------------------------------------------
+python-binance
 
-## Setup Instructions
+python-dotenv
 
-### 1. Clone the Repository
+argparse
 
-git clone https://github.com/SUJAYBARAI/binance-futures-trading-bot {=html} cd trading_bot
+Project Structure
 
-### 2. Create Virtual Environment (Recommended)
+trading_bot
+│
+├── bot
+│ ├── init.py
+│ ├── client.py
+│ ├── orders.py
+│ ├── validators.py
+│ ├── logging_config.py
+│
+├── cli.py
+├── requirements.txt
+├── README.md
+└── logs (auto-generated)
 
-Windows: python -m venv venv venv`\Scripts`{=tex}`\activate`{=tex}
+Setup Instructions
 
-### 3. Install Dependencies
+Clone the repository
+
+git clone https://github.com/SUJAYBARAI/binance-futures-trading-bot
+
+cd trading_bot
+
+Create a virtual environment (recommended for Windows)
+
+python -m venv venv
+venv\Scripts\activate
+
+Install dependencies
 
 pip install -r requirements.txt
 
-### 4. Create a .env File
+Create a .env file
 
-Create a .env file in the project root and add:
+Create a .env file in the project root and add the following:
 
-BINANCE_API_KEY=your_api_key BINANCE_SECRET_KEY=your_secret_key
+BINANCE_API_KEY=your_api_key
+BINANCE_SECRET_KEY=your_secret_key
 
-⚠️ Do NOT commit the .env file to GitHub.
+Do not commit the .env file to GitHub.
 
-------------------------------------------------------------------------
-
-## API Endpoint Used
+API Endpoint Used
 
 Binance Futures Demo API Endpoint:
-
 https://demo-fapi.binance.com
 
-------------------------------------------------------------------------
+Usage Examples
 
-## Usage Examples
-
-### MARKET Order
-
+MARKET Order:
 python cli.py --symbol BTCUSDT --side BUY --type MARKET --quantity 0.002
 
-### LIMIT Order
+LIMIT Order:
+python cli.py --symbol BTCUSDT --side SELL --type LIMIT --quantity 0.002 --price 70000
 
-python cli.py --symbol BTCUSDT --side SELL --type LIMIT --quantity 0.002
---price 70000
-
-------------------------------------------------------------------------
-
-## CLI Output
+CLI Output
 
 The application prints:
 
--   Order request summary
--   Order ID
--   Order status
--   Executed quantity
--   Average price (if available)
--   Success / Failure message
+Order request summary
 
-------------------------------------------------------------------------
+Order ID
 
-## Logging
+Order status
+
+Executed quantity
+
+Average price (if available)
+
+Success or failure message
+
+Logging
 
 All API requests, responses, and errors are logged to:
 
 logs/trading.log
 
-The log file includes: - Timestamp - Log level - Order details - Full
-API response - Error information (if any)
+The log file includes:
 
-------------------------------------------------------------------------
+Timestamp
 
-## Assumptions
+Log level
 
--   USDT-M Futures only
--   Binance Demo environment is used
--   Minimum notional requirement (\~\$100) applies
--   Valid Demo API credentials required
+Order details
 
-------------------------------------------------------------------------
+Full API response
 
-## Conclusion
+Error information (if any)
 
-This project demonstrates:
+Assumptions
 
--   Clean and modular code structure
--   Proper API abstraction
--   Strong validation and error handling
--   Production-style logging
--   Successful integration with Binance Futures Demo API
+USDT-M Futures only
+
+Binance Demo environment is used
+
+Minimum notional requirement (approximately $100) applies
+
+Valid Demo API credentials are required
+
+Conclusion
+
+This project demonstrates clean and modular code structure, proper API abstraction, strong validation and error handling, production-style logging, and successful integration with the Binance Futures Demo API.
